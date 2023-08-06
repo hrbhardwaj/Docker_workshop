@@ -33,7 +33,7 @@ CMD ["python", "app.py"]
 
  FROM:    Specifies the base image. You can use a pre-existing image from Docker Hub or a custom image you've created.
  ENV:     Sets environment variables that can be accessed by processes running in the container.
- WORKDIR: Sets the working directory inside the container where subsequent commands will be executed.
+ WORKDIR: Sets the working directory inside the container where subsequent commands will be executed. And user enter thid directory 
  COPY:    Copies files from the host machine (where the Dockerfile resides) to the container.
  RUN:     Runs commands to install software, configure the environment, and set up dependencies.
  EXPOSE:  Informs Docker that the container listens on a specific port (for documentation purposes).
@@ -43,6 +43,17 @@ CMD ["python", "app.py"]
 
 docker build -t myimage .
 
+# Important Questions From Docker File 
+
+Q1. Difference Between Add and Copy argument ?
+Ans = Copy : It is used to Copt the file from host machine to docker container with specific directory
+      ADD : It s same as like Copy the file form host machine to container It has some additional features compared to COPY, such as the ability to 
+             automatically extract compressed archives and URLs.
+
+Q2. Difference Between CMD and Entrypoint ?
+Ans = Both are used for Executing the command at the time fo container deplyoment 
+        CMD :   It is overide ( when bulding the container if any command will apply then CMD will not work )
+        Enterypoint : It is enforced ( When building the container if anycommand will provide it will not excute )
 
 
 
