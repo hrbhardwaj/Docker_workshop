@@ -1,1 +1,41 @@
+# Docker Container
 
+A Docker container is a lightweight, standalone, and executable software package that includes everything needed to run a piece of 
+ software, including the code, runtime, system libraries, and settings. Containers provide a consistent and isolated environment for 
+ running applications, making them portable across different computing environments, such as development, testing, and production.
+
+# To configure your own Docker container, follow these steps:
+
+1. Choose a Base Image: Start by selecting an appropriate base image for your application. You can use official images from Docker Hub 
+    or create your own custom images.
+2. Create a Dockerfile: Write a Dockerfile that defines the configuration for your container. This includes specifying the base image, 
+    copying files, setting environment variables, and defining the command to run.
+3. Build the Image: Use the docker build command to build an image from your Dockerfile:
+
+ # bash Command
+
+docker build -t myapp .
+
+4. Run a Container: Create and start a container from your image using the docker run command:
+ 
+  # bash Command
+
+docker run -d -p 8080:80 myapp
+
+  This runs a detached container that maps port 8080 on the host to port 80 in the container.
+
+5. Interact and Manage: You can use various Docker commands to manage your container, 
+    such as docker ps to list running containers and docker stop to stop a container.
+
+docker ps                                                   = It is used for list down the running containers 
+docker images                                               = It is used for list down all the images                              
+docker stop    < Container-name or ID >                     = It is used for Stoping the running Container 
+docker restart < Container-name or ID >                     = It is used for restart the stoped container 
+docker exec                                                 = It is used to go inside the container 
+docker rename  < container-old-name container-new-nae>      = It is used for chaning the container name 
+docker logs    < Container-name or ID >                     = It is used to check the particular container logs 
+docker pause   < Container-name or ID >                     = It is used for pause the container 
+docker unpause < Container-name or ID >                     = It is used for pause the container 
+docker cp      < Source-path container-ID:Dest-Patg >       = It is used for 
+docker cp      < container-ID:Source-path dest-path>
+docker start   < Container-name or ID >                     = It is used to Start the Container 
