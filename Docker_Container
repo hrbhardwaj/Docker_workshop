@@ -39,3 +39,4 @@ docker unpause < Container-name or ID >                     = It is used for pau
 docker cp      < Source-path container-ID:Dest-Patg >       = It is used for 
 docker cp      < container-ID:Source-path dest-path>
 docker start   < Container-name or ID >                     = It is used to Start the Container 
+docker system purne                                         = It will delete all the stop containers and netwroks 
