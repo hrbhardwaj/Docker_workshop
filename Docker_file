@@ -1,1 +1,52 @@
+# Docker Flie 
+
+A Dockerfile is a plain text configuration file used to define how a Docker container image should be built. It contains a set of 
+instructions that specify the base image, environment settings, software installations, file copies, and commands to run when the container
+starts. Docker uses the instructions in the Dockerfile to automatically create a container image that encapsulates your application and its 
+dependencies.
+
+ Example 
+
+ # Use an existing base image as the starting point
+FROM ubuntu:20.04
+
+ # Set environment variables (optional)
+ENV APP_NAME=myapp
+
+ # Set the working directory inside the container
+WORKDIR /app
+
+ # Copy files from the host machine to the container
+COPY . .
+ 
+ # Run commands to install software or dependencies
+RUN apt-get update && apt-get install -y software-package
+
+ # Expose a port that the container will listen on (optional)
+EXPOSE 8080
+
+ # Specify the command to run when the container starts
+CMD ["python", "app.py"]
+
+
+ # In this example:
+
+ FROM:    Specifies the base image. You can use a pre-existing image from Docker Hub or a custom image you've created.
+ ENV:     Sets environment variables that can be accessed by processes running in the container.
+ WORKDIR: Sets the working directory inside the container where subsequent commands will be executed.
+ COPY:    Copies files from the host machine (where the Dockerfile resides) to the container.
+ RUN:     Runs commands to install software, configure the environment, and set up dependencies.
+ EXPOSE:  Informs Docker that the container listens on a specific port (for documentation purposes).
+ CMD:     Specifies the default command to run when the container starts. This can be overridden when starting the container.
+
+ # To build an image from a Dockerfile, you use the docker build command:
+
+docker build -t myimage .
+
+
+
+
+
+
+
 
