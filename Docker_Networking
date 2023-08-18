@@ -1,1 +1,14 @@
+Docker Networks:
+
+Their are 3 types of Default Docker Network 
+
+1: Bridge  * In bridge network we can use port to exposes our application 
+           * we can isloate two cutomers application with two custom bridge network
+           * we can you same port to run application on container 
+2: Host    * In case you have run one appliaction with dedicated network performance 
+           * we can not run our application on same port 
+           * we can not run two application on host network
+3: null    * It is used for create a network without internet for testing anything
+
+4: Overlay * This network is used for bulidng the connection over different node 
 
