@@ -1,0 +1,45 @@
+In this file a simple web application that uses a web server and a database.
+
+=====================================================================
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./web-content:/usr/share/nginx/html
+    networks:
+      - mynetwork
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: myappdb
+      MYSQL_USER: myappuser
+      MYSQL_PASSWORD: myapppassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+volumes:
+  mysql-data:
+
+
+===========================================================
+Explanation:
+
+* The web service uses the latest Nginx image and maps port 80 of the host to port 80 of the container. It also mounts the ./web-content directory from
+the host to the container's web root directory to serve content.
+
+* The db service uses the latest MySQL image. It sets environment variables for MySQL configuration and credentials. It also uses a volume named 
+mysql-data to persist the MySQL data.
+
+* Both services are connected to a custom network named mynetwork, allowing them to communicate with each other using service names as hostnames.
+
+* Volumes are used to ensure data persistence between container restarts.
